@@ -1,0 +1,167 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  background: rgb(104, 97, 108);
+  background: linear-gradient(90deg, rgba(104, 97, 108, 1) 0%, rgba(134, 130, 140, 1) 100%);
+}
+
+.container {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel:hover .prev,
+.carousel:hover .next {
+  background-color: rgba(197, 191, 191, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.start-stop {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 10px;
+  left: 20px;
+  width: 60px;
+}
+
+.start-button,
+.stop-button {
+  color: whitesmoke;
+  border-radius: 50%;
+  border: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.start-button:hover,
+.stop-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.start-button:active,
+.stop-button:active {
+  transform: scale(0.93);
+}
+
+.start-button.active,
+.stop-button.active {
+  color: rgb(46, 44, 44);
+}
+
+.start-button:focus,
+.stop-button:focus {
+  outline: none;
+}
+
+.carousel {
+  width: 1200px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.71);
+}
+
+.slider {
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  transition: 0.2s all;
+  transform: translateX(-1200px);
+}
+
+.slider-item {
+  position: relative;
+}
+
+.page-number {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  position: absolute;
+}
+
+.page-circles {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  color: transparent;
+  cursor: pointer;
+  transition: 0.3s transform;
+}
+
+.page-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+@keyframes getBigger {
+  0% {
+    transform: scale(0.2);
+  }
+  80% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.page-circle.active {
+  animation: getBigger 0.5s ease;
+  background-color: rgb(46, 44, 44);
+}
+
+.controller {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 50px;
+}
+
+.controller:active {
+  transform: translateY(-50%) scale(0.93);
+}
+
+.controller:focus {
+  outline: none;
+}
+
+.prev {
+  left: 0px;
+}
+
+.next {
+  right: 0px;
+}
